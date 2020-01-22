@@ -1,16 +1,20 @@
 import { ADD_PERSON } from './personType'
 
 const initialState = {
-    name: null
+    name: null,
+    email: null
 }
 
 const personReducer = (state = initialState, action) => {
+    console.log(action)
     switch (action.type)
     {
         case ADD_PERSON:
             return {
                 ...state,
-                name: action.fname
+                name: action.name,
+                email: action.email
+
             }
         default:
              return state

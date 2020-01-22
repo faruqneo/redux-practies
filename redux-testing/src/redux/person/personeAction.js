@@ -1,7 +1,7 @@
 import {ADD_PERSON } from './personType'
 
-export const addPerson = (fname) => { 
+export const addPerson = (input) => { 
     return {
-        type: ADD_PERSON , fname: fname
+        type: ADD_PERSON , name: input.name, email: input.email
     }
  }

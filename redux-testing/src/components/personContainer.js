@@ -7,18 +7,21 @@ function PersonContainer(props) {
     const [inputs, setInputs] = useState({});
 
     const handlechanges = (e) => {
-        //console.log(e.target.value)
-        setInputs({[e.target.name]: e.target.value})
+        e.persist();
+        setInputs(inputs => ({...inputs, [e.target.name]: e.target.value}))
     }
 
     const handleSubmit = (e) => {
-        props.addPerson(inputs.name)
+        //const {name, email} = inputs;
+        //console.log(inputs)
+        props.addPerson(inputs)
     }
 
     return (
         <div>
             <from onClick={handleSubmit}>
-                <input type="text" name="name" value={inputs.name}  placeholder="Enter your name" onChange={handlechanges} />
+                <input type="text" name="name" value={inputs.name}  placeholder="Enter your name" onChange={handlechanges} /><br/ >
+                <input type="email" name="email" value={inputs.email}  placeholder="Enter your email" onChange={handlechanges} /><br/ >
                 <button>Submit</button>
             </from>
         </div>
