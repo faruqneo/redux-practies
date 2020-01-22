@@ -1,6 +1,12 @@
-import {createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import cakeReducer from './cake/cakeReducer';
+import personeReducer from './person/personeReducer';
 
-const store = createStore(cakeReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const rootReducer = combineReducers({
+    'cakeReducer': cakeReducer, 
+    'personeReducer': personeReducer
+});
+
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 export default store

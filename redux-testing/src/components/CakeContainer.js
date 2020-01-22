@@ -6,14 +6,14 @@ function CakeContainer(props) {
     return (
         <div>
             <h2>No. of Cakes - {props.numOfCakes}</h2>
-            <button onClick={props.buycakes}>Buy Cakes</button>
+            <button onClick={props.buycakes} disabled={props.numOfCakes == 0}>Buy Cakes</button>
         </div>
     )
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({cakeReducer}) => {
     return {
-        numOfCakes: state.numOfCakes
+        numOfCakes: cakeReducer.numOfCakes
     }
 }
 
